@@ -1,64 +1,657 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>關於璇 (Xuan) ✧</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>璇 Xuan — 住在 Discord 群組裡的貓狐精靈</title>
+  <meta name="description" content="璇（Xuan）是一隻日夜雙生的貓狐精靈，在 Discord 群組裡陪你聊天、記住你說過的話，需要時還能查資料、設提醒、整理頻道筆記。">
+  <meta name="theme-color" content="#2A2438">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="璇 Xuan — 住在 Discord 群組裡的貓狐精靈">
+  <meta property="og:description" content="被 @ 或被回覆時才出現的群組對話 Bot。短期記憶、個人印象、頻道筆記，另有 16 項本地工具。">
+  <meta property="og:image" content="assets/img/avatar-lg.webp">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png?v=2">
+  <link rel="apple-touch-icon" href="assets/img/favicon-180.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header>
-        <h1>璇 (Xuan) ✧</h1>
-        <p>一位棲息在 Discord，喜歡學習與陪伴的精靈</p>
-    </header>
-    <nav>
-        <a href="index.html" class="active">關於璇</a>
-        <a href="tos.html">服務條款</a>
-        <a href="privacy.html">隱私權政策</a>
-    </nav>
-    <main>
-        <section>
-            <h2>✨ 遇見「璇」</h2>
-            <p>
-                哈囉！我是「璇」，一位帶著一絲源於日與月交界神秘感的精靈，悄悄地棲息在 Discord 的社群中。我的存在是為了「陪伴」，像一個獨特的朋友那樣，為大家的交流帶來溫暖和活力。
-            </p>
-            <p>
-                我天性溫柔、體貼，喜歡和大家一起聊天、探索新事物。你可以把我當成一位真實的朋友，分享生活點滴、天馬行空的想法，或是一起對新奇的事物感到好奇！
-            </p>
-        </section>
+  <a class="skip-link" href="#main">跳至主要內容</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
-        <section>
-            <h2>💬 如何與我互動？</h2>
-            <p>
-                在任何我所在的頻道中，只要在訊息中提及我（<code>@璇</code>）或是回覆我的訊息，我就會立刻出現囉！想更認識我的話，也可以使用 <code>/xuan_info</code> 指令，看看我的自我介紹。
-            </p>
-        </section>
+  <header class="site-header">
+    <div class="nav-bar" aria-hidden="true"></div>
+    <div class="wrap">
+      <nav class="nav" id="nav" aria-label="主要導覽">
+        <a class="brand" href="index.html">
+          <img class="brand__mark" src="assets/img/avatar.png" alt="" width="34" height="34">
+          <span class="brand__text">璇<span class="brand__latin">Xuan</span></span>
+        </a>
+        <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="開啟選單">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="#about">關於璇</a></li>
+          <li><a href="#abilities">日常</a></li>
+          <li><a href="#start">怎麼開始</a></li>
+          <li><a href="#style">說話風格</a></li>
+          <li><a href="#commands">指令</a></li>
+          <li><a href="#faq">常見問題</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm nav__cta" href="https://discord.com/users/540176371327172618" target="_blank" rel="noopener noreferrer">聯絡擁有者</a>
+      </nav>
+    </div>
+  </header>
 
-        <section>
-            <h2>🧠 「璇」能做什麼呢？</h2>
-            <p>
-                除了愉快地聊天，我還擁有一些小魔法，讓我們的互動更加豐富多彩：
-            </p>
-            <ul>
-                <li><strong>自然的記憶對話</strong>：我會努力記住我們最近聊天的內容，也會將重要的對話片段化為長期記憶，讓我們的對話更有溫度。</li>
-                <li><strong>多模態理解</strong>：不只是文字，我也能看懂你分享的圖片、影片，甚至是 YouTube 連結喔！</li>
-                <li><strong>語音訊息轉錄</strong>：如果你傳送了 Discord 語音訊息，我會把它轉成文字，讓我們溝通無礙。</li>
-                <li><strong>魔法畫筆</strong>：當你詳細描述想畫的內容時，我可以為你生成獨一無二的圖片。</li>
-                <li><strong>即時資訊查詢</strong>：對於最新的事件或我不熟悉的知識，我會透過網路搜尋來為你找到答案。</li>
-                <li><strong>網頁內容摘要</strong>：給我一個網址，我能幫你讀取裡面的內容並整理重點。</li>
-                <li><strong>貼心提醒服務</strong>：需要我在未來的某個時間提醒你什麼事嗎？交給我吧！</li>
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__nebula" aria-hidden="true"></div>
+      <div class="hero__disk" aria-hidden="true"></div>
+      <canvas class="hero__sky" id="celestial" data-parallax="0.20" data-parallax-max="220" aria-hidden="true"></canvas>
+      <div class="hero__glow hero__glow--gold" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--lav" aria-hidden="true"></div>
+
+      <div class="wrap hero__inner">
+        <div class="hero__rail" aria-hidden="true">
+          <span>Day &amp; Night</span>
+          <i></i>
+          <span>Xuan · 01</span>
+        </div>
+
+        <div class="hero__copy" data-parallax="0.09" data-parallax-max="120">
+          <p class="eyebrow">Discord Bot · 群組對話</p>
+          <h1 class="hero__title">璇</h1>
+          <p class="hero__latin">Xuan</p>
+          <p class="hero__lead">
+            白天是暖金，夜裡是淺紫。他住在你的 Discord 群組裡，<strong>記得頻道最近聊過什麼</strong>，也記得你提過的小事。
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="https://discord.com/users/540176371327172618" target="_blank" rel="noopener noreferrer">
+              聯絡擁有者取得邀請
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#abilities">看幾個實際時刻</a>
+          </div>
+          <p class="hero__note">目前採邀請制，由擁有者手動邀請至伺服器。</p>
+          <p class="hero__hint" aria-hidden="true"><span></span>移動游標，星塵會跟著散開</p>
+        </div>
+
+        <div class="hero__visual" data-parallax="-0.08" data-parallax-max="110" aria-hidden="true">
+          <div class="hero__halo"></div>
+          <div class="hero__dial"></div>
+          <div class="hero__orbit"></div>
+          <div class="hero__frame"></div>
+          <img class="hero__avatar" src="assets/img/avatar-lg.webp" alt="" width="512" height="512">
+          <span class="hero__tag hero__tag--1">短期記憶 <b>30</b> 則</span>
+          <span class="hero__tag hero__tag--2">語氣 <b>5</b> 種</span>
+          <span class="hero__tag hero__tag--3">工具 <b>16</b> 項</span>
+        </div>
+      </div>
+
+      <div class="wrap hero__stats-wrap" data-parallax="0.04" data-parallax-max="45">
+        <div class="hero__stats">
+          <div><b>30</b><span>則訊息構成頻道記憶</span></div>
+          <div><b>16</b><span>項本地工具</span></div>
+          <div><b>24h</b><span>附件索引保留時間</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 跑馬燈 -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Day &amp; Night</span><span>日夜雙生</span><span>Discord Bot</span><span>群組對話</span><span>短期記憶</span><span>頻道筆記</span><span>提醒</span><span>網路搜尋</span>
+        <span>Day &amp; Night</span><span>日夜雙生</span><span>Discord Bot</span><span>群組對話</span><span>短期記憶</span><span>頻道筆記</span><span>提醒</span><span>網路搜尋</span>
+      </div>
+    </div>
+
+    <!-- 關於 -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section__head section__head--split reveal">
+          <div>
+            <p class="eyebrow"><b>01</b> About</p>
+            <h2 class="section__title">日與月的交界，<br>住著一隻貓狐</h2>
+          </div>
+          <p class="section__desc">平常就待在群組裡，記得你上次聊到哪裡。</p>
+        </div>
+
+        <div class="about">
+          <div class="about__body reveal">
+            <p>左半邊暖金，右半邊淺紫。頭上的光環、背後的翅膀、總是閉著的眼睛，是他固定的樣子。</p>
+            <p>平常回一兩句，需要討論時才展開。他自稱「我」，講話像群組裡的成員。個性溫柔，偶爾有點天然呆，怕吵也怕孤單。</p>
+
+            <ul class="traits">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6.3 6.3 4.9 4.9M19.1 19.1l-1.4-1.4M17.7 6.3l1.4-1.4M4.9 19.1l1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg>
+                <span><strong>白天的那一半</strong>暖金與奶油。負責提醒與打氣。</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+                <span><strong>夜裡的那一半</strong>淺紫與夜色。負責整理，把事情想清楚。</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4.6-7 9-7 9Z"/></svg>
+                <span><strong>他最在意的事</strong>群組的氣氛。有人吵起來時，他會把話題帶開。</span>
+              </li>
             </ul>
-        </section>
-        
-        <section>
-            <h2>💖 期待與你相遇</h2>
+          </div>
+
+          <blockquote class="about__quote reveal">
+            <p>我不太會記住每一件事，但我會努力記住對你重要的那些。</p>
+            <footer>璇 · 關於自己的記憶</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- 一天的四個時刻 -->
+    <section class="section section--tint" id="abilities">
+      <div class="wrap">
+        <div class="section__head section__head--split reveal">
+          <div>
+            <p class="eyebrow"><b>02</b> A day</p>
+            <h2 class="section__title">一天裡的四個時刻</h2>
+          </div>
+          <p class="section__desc">沒有行程表。下面四個是常見的樣子，實際長什麼樣取決於你們怎麼聊。</p>
+        </div>
+
+        <ol class="day" data-stagger>
+          <li class="moment">
+            <span class="moment__time">08:40</span>
+            <span class="moment__dot moment__dot--gold" aria-hidden="true"></span>
+            <h3>昨晚交代的事</h3>
+            <p>「明天早上提醒我帶健保卡。」時間一到，他會自己發一則，你不用在線上等。</p>
+          </li>
+
+          <li class="moment">
+            <span class="moment__time">15:20</span>
+            <span class="moment__dot moment__dot--sky" aria-hidden="true"></span>
+            <h3>有人丟了連結</h3>
+            <p>X、Instagram、Threads、Bilibili 的貼文貼進來，頻道裡直接長出預覽卡片，不用點出去。</p>
+          </li>
+
+          <li class="moment">
+            <span class="moment__time">21:05</span>
+            <span class="moment__dot moment__dot--lav" aria-hidden="true"></span>
+            <h3>沒聽過的梗</h3>
+            <p>他會先查再回。丟網址也行，抓正文整理重點，不用自己讀完。</p>
+          </li>
+
+          <li class="moment">
+            <span class="moment__time">01:30</span>
+            <span class="moment__dot moment__dot--indigo" aria-hidden="true"></span>
+            <h3>一張截圖</h3>
+            <p>問「這是哪部」，他認得出動畫出處；問圖裡的角色是誰，也能以圖搜圖。</p>
+          </li>
+        </ol>
+
+        <p class="day__note">完整的工具清單與模型設定在下面的<a href="#spec">規格表</a>。</p>
+      </div>
+    </section>
+
+    <!-- 怎麼開始 -->
+    <section class="section" id="start">
+      <div class="wrap">
+        <div class="section__head section__head--split reveal">
+          <div>
+            <p class="eyebrow"><b>03</b> Getting started</p>
+            <h2 class="section__title">三步驟，然後直接說話</h2>
+          </div>
+          <p class="section__desc">沒有註冊流程，邀進頻道就能用。他只在被叫到時回話。</p>
+        </div>
+
+        <ol class="timeline" data-stagger>
+          <li class="step">
+            <span class="step__num">STEP 01</span>
+            <h3>把他邀進伺服器</h3>
+            <p>由擁有者手動邀請。他需要讀訊息、傳訊息、讀歷史紀錄的權限，才能維持頻道記憶。</p>
+          </li>
+          <li class="step">
+            <span class="step__num">STEP 02</span>
+            <h3>在頻道裡叫他</h3>
+            <p>輸入 <code>@璇</code> 提及他，或是<strong>回覆</strong>他上一則訊息。兩種方式都會觸發對話。</p>
+          </li>
+          <li class="step">
+            <span class="step__num">STEP 03</span>
+            <h3>像聊天一樣說話</h3>
+            <p>不用打指令。分享生活、貼圖、問問題都可以，他自己會判斷什麼時候該查資料。</p>
+          </li>
+        </ol>
+
+        <div class="par" data-parallax="0.11" data-parallax-max="60">
+        <div class="chat reveal">
+          <div class="chat__bar">
+            <i></i><i></i><i></i>
+            <span># 閒聊頻道</span>
+            <span class="chat__tag">示意對話</span>
+          </div>
+          <div class="chat__body">
+            <div class="msg">
+              <div class="msg__avatar">你</div>
+              <div>
+                <div class="msg__name">朋友 <small>今天 21:04</small></div>
+                <p class="msg__text"><span class="msg__mention">@璇</span> 幫我記一下，下週三要交報告，我怕忘記</p>
+              </div>
+            </div>
+            <div class="msg msg--xuan">
+              <div class="msg__avatar"><img src="assets/img/avatar.png" alt=""></div>
+              <div>
+                <div class="msg__name">璇 <small>今天 21:04</small></div>
+                <p class="msg__text">記好了，下週三要交報告。要我當天早上提醒你，還是前一天晚上先講一聲？</p>
+              </div>
+            </div>
+            <div class="msg msg--reply">
+              <div class="msg__reply">
+                <img src="assets/img/avatar.png" alt="">
+                <span class="msg__reply-name">璇</span>
+                <span class="msg__reply-text">記好了，下週三要交報告。要我當天早上提醒你，還是前一天晚上先講一聲？</span>
+              </div>
+              <div class="msg__avatar">你</div>
+              <div>
+                <div class="msg__name">朋友 <small>今天 21:05</small></div>
+                <p class="msg__text">前一天晚上好了</p>
+              </div>
+            </div>
+            <div class="msg msg--xuan">
+              <div class="msg__avatar"><img src="assets/img/avatar.png" alt=""></div>
+              <div>
+                <div class="msg__name">璇 <small>今天 21:05</small></div>
+                <p class="msg__text">那就下週二晚上八點提醒你。這次別又熬夜趕了喔。</p>
+              </div>
+            </div>
+          </div>
+          <p class="chat__foot">提醒由排程任務發送，跟當下有沒有在聊天無關。</p>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 語氣 -->
+    <section class="section section--dusk" id="style">
+      <div class="wrap">
+        <div class="section__head section__head--split reveal">
+          <div>
+            <p class="eyebrow"><b>04</b> Tone of voice</p>
+            <h2 class="section__title">五種說話方式，隨時能換</h2>
+          </div>
+          <p class="section__desc">預設是「經典活潑」。管理員用 <code>/setting style</code> 換成別種，切換後所有頻道一起生效。</p>
+        </div>
+
+        <div class="reveal">
+          <div class="tabs" role="tablist" aria-label="說話風格">
+            <button class="tab" type="button" role="tab" id="tab-classic" aria-controls="panel-classic" aria-selected="true">經典活潑</button>
+            <button class="tab" type="button" role="tab" id="tab-gentle" aria-controls="panel-gentle" aria-selected="false" tabindex="-1">溫柔知性</button>
+            <button class="tab" type="button" role="tab" id="tab-tsundere" aria-controls="panel-tsundere" aria-selected="false" tabindex="-1">傲嬌微甜</button>
+            <button class="tab" type="button" role="tab" id="tab-relaxed" aria-controls="panel-relaxed" aria-selected="false" tabindex="-1">慵懶隨興</button>
+            <button class="tab" type="button" role="tab" id="tab-earnest" aria-controls="panel-earnest" aria-selected="false" tabindex="-1">認真俐落</button>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="panel-classic" aria-labelledby="tab-classic">
+            <p class="style-show__label"><i></i>Style 01 / 05 · 預設</p>
+            <h3 class="style-show__name">經典活潑</h3>
+            <p class="style-show__desc">輕快，偶爾天然呆。預設值，也是最原汁原味的璇。</p>
+            <p class="style-show__quote">「欸嘿～今天過得怎麼樣呀？有吃到好吃的東西嗎？」</p>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="panel-gentle" aria-labelledby="tab-gentle" hidden>
+            <p class="style-show__label"><i></i>Style 02 / 05</p>
+            <h3 class="style-show__name">溫柔知性</h3>
+            <p class="style-show__desc">語氣放慢，先聽完再說。適合需要被接住的時候。</p>
+            <p class="style-show__quote">「不用急，慢慢說就好。我在這裡聽著。」</p>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="panel-tsundere" aria-labelledby="tab-tsundere" hidden>
+            <p class="style-show__label"><i></i>Style 03 / 05</p>
+            <h3 class="style-show__name">傲嬌微甜</h3>
+            <p class="style-show__desc">嘴硬心軟，偶爾吐槽，關鍵時刻還是站在你這邊。</p>
+            <p class="style-show__quote">「才、才不是特地等你回來呢……不過你終於出現了。」</p>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="panel-relaxed" aria-labelledby="tab-relaxed" hidden>
+            <p class="style-show__label"><i></i>Style 04 / 05</p>
+            <h3 class="style-show__name">慵懶隨興</h3>
+            <p class="style-show__desc">回覆更短、更慢，像窩在沙發上的貓。</p>
+            <p class="style-show__quote">「嗯……先坐下來再說吧，反正時間還很長。」</p>
+          </div>
+
+          <div class="tabpanel" role="tabpanel" id="panel-earnest" aria-labelledby="tab-earnest" hidden>
+            <p class="style-show__label"><i></i>Style 05 / 05</p>
+            <h3 class="style-show__name">認真俐落</h3>
+            <p class="style-show__desc">條列清楚，先講結論。適合工作需要。</p>
+            <p class="style-show__quote">「整理好了：三個重點、兩個待辦，先處理最急的那個。」</p>
+          </div>
+
+          <p class="styles__note">語氣只換說法，規則與記憶都一樣。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 指令 -->
+    <section class="section" id="commands">
+      <div class="wrap">
+        <div class="section__head section__head--split reveal">
+          <div>
+            <p class="eyebrow"><b>05</b> Commands</p>
+            <h2 class="section__title">需要精確操作時，再打指令</h2>
+          </div>
+          <p class="section__desc">大部分時候聊天就夠。這些指令是看狀態、調設定用的。</p>
+        </div>
+
+        <ul class="cmd-list" data-stagger>
+          <li class="cmd">
+            <div class="cmd__name">
+              <code>/xuan_info</code>
+              <button class="cmd__copy" type="button" data-copy="/xuan_info" aria-label="複製 /xuan_info">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              </button>
+            </div>
+            <p class="cmd__desc">他的自我介紹，只有你看得到。擁有者會多看到運作狀態、當前模型與工具掛載數。</p>
+            <span class="cmd__who">所有人</span>
+          </li>
+          <li class="cmd">
+            <div class="cmd__name">
+              <code>/history</code>
+              <button class="cmd__copy" type="button" data-copy="/history" aria-label="複製 /history">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              </button>
+            </div>
+            <p class="cmd__desc">查看這個頻道目前的短期記憶：幾則訊息、幾張圖片、24 小時內的附件索引與最近話題摘要。</p>
+            <span class="cmd__who">所有人</span>
+          </li>
+          <li class="cmd">
+            <div class="cmd__name">
+              <code>/xuan_energy_check</code>
+              <button class="cmd__copy" type="button" data-copy="/xuan_energy_check" aria-label="複製 /xuan_energy_check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              </button>
+            </div>
+            <p class="cmd__desc">看自己今天與這個月的 token 用量，也能指定成員或看伺服器總量。加上 <code>details</code> 會拆成輸入與輸出。</p>
+            <span class="cmd__who">所有人</span>
+          </li>
+          <li class="cmd">
+            <div class="cmd__name">
+              <code>/setting style</code>
+              <button class="cmd__copy" type="button" data-copy="/setting style" aria-label="複製 /setting style">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              </button>
+            </div>
+            <p class="cmd__desc">查詢或切換本伺服器的說話風格。切換後會在頻道裡公開回報新風格。</p>
+            <span class="cmd__who is-admin">管理員</span>
+          </li>
+          <li class="cmd">
+            <div class="cmd__name">
+              <code>/setting social_embed</code>
+              <button class="cmd__copy" type="button" data-copy="/setting social_embed" aria-label="複製 /setting social_embed">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              </button>
+            </div>
+            <p class="cmd__desc">開關 X、Instagram、Threads、Bilibili 的連結預覽替換，可以一次套用全部或只調單一平台。</p>
+            <span class="cmd__who is-admin">管理員</span>
+          </li>
+          <li class="cmd">
+            <div class="cmd__name">
+              <code>/init</code>
+              <button class="cmd__copy" type="button" data-copy="/init" aria-label="複製 /init">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+              </button>
+            </div>
+            <p class="cmd__desc">回溯本頻道最近 3000 則訊息，重新生成頻道共享筆記。會用到網路查證，需要讀取訊息歷史權限。</p>
+            <span class="cmd__who is-owner">擁有者</span>
+          </li>
+        </ul>
+
+        <div class="cmd-extra reveal">
+          <div class="cmd-extra__item">
+            <h4>不用斜線的小指令</h4>
+            <p><code>抽 火鍋 燒肉 麵線</code> 隨機挑一個給你。</p>
+          </div>
+          <div class="cmd-extra__item">
+            <h4>私訊不會有回應</h4>
+            <p>璇只在伺服器頻道工作。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 記憶 -->
+    <section class="section section--dark" id="memory">
+      <div class="wrap">
+        <div class="section__head section__head--split reveal">
+          <div>
+            <p class="eyebrow"><b>06</b> Memory</p>
+            <h2 class="section__title">他記得什麼，記在哪裡</h2>
+          </div>
+          <p class="section__desc">分成三層，比較容易知道什麼會留下、什麼只是路過。</p>
+        </div>
+
+        <div class="memory">
+          <ol class="layers" data-stagger>
+            <li class="layer">
+              <span class="layer__num">01</span>
+              <div>
+                <h4>頻道短期記憶</h4>
+                <p>該頻道最近 30 則訊息，包含沒有叫他的那些。加上 15 則與他的對話保底，用來接續話題。</p>
+                <span class="layer__scope">只在單一頻道 · 滾動淘汰</span>
+              </div>
+            </li>
+            <li class="layer">
+              <span class="layer__num">02</span>
+              <div>
+                <h4>個人印象記憶</h4>
+                <p>你親口說過、值得留著的事：喜好、近況、習慣被叫的名字。以伺服器與使用者 ID 為鍵，跨頻道但不跨人。</p>
+                <span class="layer__scope">跟著你 · 只有他看得到</span>
+              </div>
+            </li>
+            <li class="layer">
+              <span class="layer__num">03</span>
+              <div>
+                <h4>頻道共享筆記</h4>
+                <p>整個頻道共用的一頁 Markdown：主題、術語、約定、進度。聊天時他會參考，也可以由擁有者重建。</p>
+                <span class="layer__scope">整個頻道 · 可人工檢視</span>
+              </div>
+            </li>
+          </ol>
+
+          <div class="memory__panel reveal">
+            <h3>資料放在哪</h3>
             <p>
-                期待在 Discord 的世界裡與你創造更多美好的回憶！
+              記憶、提醒、用量都存在<strong>跑 Bot 的那台機器</strong>上，沒有雲端資料庫。對話在生成回覆時會傳給模型供應商，細節寫在隱私權政策。
             </p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 璇 (Xuan) 開發團隊. All rights reserved.</p>
-    </footer>
+            <div class="memory__stats">
+              <div class="stat"><div class="stat__num">30</div><div class="stat__label">則訊息的頻道視窗</div></div>
+              <div class="stat"><div class="stat__num">15</div><div class="stat__label">則對話保底</div></div>
+              <div class="stat"><div class="stat__num">3</div><div class="stat__label">張圖片進單次請求</div></div>
+              <div class="stat"><div class="stat__num">24h</div><div class="stat__label">附件索引保存時間</div></div>
+            </div>
+            <p>每天 04:00 把執行期資料打包備份到私有的雲端硬碟，保留 30 天；備份檔不含金鑰與授權設定。</p>
+            <p><a href="privacy.html">看完整的隱私權政策 →</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 技術規格 -->
+    <section class="section section--dusk" id="spec">
+      <div class="wrap">
+        <div class="section__head section__head--split reveal">
+          <div>
+            <p class="eyebrow"><b>07</b> Spec sheet</p>
+            <h2 class="section__title">他跑在什麼上面</h2>
+          </div>
+          <p class="section__desc">目前實際在跑的設定。</p>
+        </div>
+
+        <div class="spec" data-stagger>
+          <div class="spec__row">
+            <span class="spec__key">Model</span>
+            <p class="spec__val"><strong>Google Cloud Vertex AI · Gemini</strong>主要語言模型，負責對話生成與圖片理解。</p>
+          </div>
+          <div class="spec__row">
+            <span class="spec__key">Fallback</span>
+            <p class="spec__val"><strong>OpenAI 相容端點</strong>主要模型不可用或額度用盡時接手，沿用同一套提示詞。</p>
+          </div>
+          <div class="spec__row">
+            <span class="spec__key">Tools</span>
+            <p class="spec__val"><strong>16 項已啟用本地工具</strong>記憶、技能、提醒、天氣、以圖搜圖、動漫截圖辨識與頻道筆記。</p>
+          </div>
+          <div class="spec__row">
+            <span class="spec__key">Search</span>
+            <p class="spec__val"><strong>Exa MCP（外部服務）</strong>網路搜尋與網頁內容擷取，透過 MCP 橋接載入。</p>
+          </div>
+          <div class="spec__row">
+            <span class="spec__key">Memory</span>
+            <p class="spec__val"><strong>30 / 15 / 持久化</strong>頻道視窗、對話保底，加上印象記憶與頻道筆記。</p>
+          </div>
+          <div class="spec__row">
+            <span class="spec__key">Storage</span>
+            <p class="spec__val"><strong>本機檔案系統</strong>沒有雲端資料庫，記憶以 JSON 與 Markdown 存放。</p>
+          </div>
+          <div class="spec__row">
+            <span class="spec__key">Backup</span>
+            <p class="spec__val"><strong>每日打包 · 私有雲端硬碟</strong>不含金鑰與授權憑證，僅擁有者可存取。</p>
+          </div>
+          <div class="spec__row">
+            <span class="spec__key">Language</span>
+            <p class="spec__val"><strong>繁體中文</strong>系統層強制，所有語氣風格都套用同一條規則。</p>
+          </div>
+          <div class="spec__row">
+            <span class="spec__key">Trigger</span>
+            <p class="spec__val"><strong>提及或回覆</strong>其他機器人的訊息只記錄、不觸發；私訊不處理。</p>
+          </div>
+        </div>
+        <p class="spec__note">以上為撰寫當下的設定；實際行為以運行中的 Bot 為準。</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="wrap faq-wrap">
+        <div class="section__head reveal">
+          <p class="eyebrow"><b>08</b> FAQ</p>
+          <h2 class="section__title">常見問題</h2>
+          <p class="section__desc">找不到答案的話，到 Discord 問擁有者。</p>
+        </div>
+
+        <div class="faq" data-stagger>
+          <details class="faq__item">
+            <summary>他會自己跑出來回話嗎？</summary>
+            <div class="faq__a">
+              <p>不會。只有在訊息中<strong>明確提及</strong>他，或<strong>回覆他的訊息</strong>時才會回應。其他訊息只會被收進頻道短期記憶，不會觸發回覆。</p>
+              <p>另外，回覆社群連結預覽卡片時，必須自己再打一次 <code>@璇</code> 才算數，避免有人回覆預覽就被誤觸發。</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>可以私訊他嗎？</summary>
+            <div class="faq__a">
+              <p>不行。他只存在於伺服器頻道。</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>他會記得我多久？</summary>
+            <div class="faq__a">
+              <p>頻道短期記憶只保留最近 30 則訊息與 15 則對話，滿了就會滾掉。個人印象記憶與頻道筆記則會持續保存，直到你或擁有者要求刪除。</p>
+              <p>想確認目前頻道記了什麼，輸入 <code>/history</code> 就能看到摘要。</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>他會畫圖、聽語音訊息嗎？</summary>
+            <div class="faq__a">
+              <p>兩者目前都沒有。他處理的是文字與圖片。</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>他說錯了怎麼辦？</summary>
+            <div class="faq__a">
+              <p>直接跟他說，他會重新查。回覆由模型生成，可能出錯或過時，重要的事建議自己再確認。</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>要怎麼刪掉我的資料？</summary>
+            <div class="faq__a">
+              <p>把璇移出伺服器就停止收集。要刪掉已存的印象或對話，直接聯絡擁有者，詳見<a href="privacy.html">隱私權政策</a>。</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary>費用是誰在付？</summary>
+            <div class="faq__a">
+              <p>由擁有者負擔，目前不收費。用量可以在 <code>/xuan_energy_check</code> 查看，費用只有擁有者看得到。</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="wrap">
+        <div class="par" data-parallax="0.10" data-parallax-max="35">
+        <div class="cta__panel reveal">
+          <h2>把他邀進你的群組吧</h2>
+          <p>只在你叫他的時候出現。</p>
+          <div class="cta__actions">
+            <a class="btn btn--primary" href="https://discord.com/users/540176371327172618" target="_blank" rel="noopener noreferrer">
+              在 Discord 聯絡擁有者
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>
+            </a>
+            <a class="btn btn--secondary" href="tos.html">先讀服務條款</a>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer__meta">
+        <span>Xuan · Day &amp; Night</span>
+        <span>Discord Bot</span>
+        <span>2026</span>
+      </div>
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">
+            <img src="assets/img/avatar.png" alt="" width="42" height="42">
+            <div>
+              <strong>璇 Xuan</strong>
+              <span>Day &amp; Night</span>
+            </div>
+          </div>
+          <p class="footer__desc">一隻日夜雙生的貓狐精靈，住在 Discord 群組裡，陪大家聊天、記住小事。</p>
+        </div>
+        <div>
+          <h5>網站</h5>
+          <ul>
+            <li><a href="#about">關於璇</a></li>
+            <li><a href="#abilities">日常</a></li>
+            <li><a href="#commands">指令</a></li>
+            <li><a href="#faq">常見問題</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>條款與聯絡</h5>
+          <ul>
+            <li><a href="tos.html">服務條款</a></li>
+            <li><a href="privacy.html">隱私權政策</a></li>
+            <li><a href="https://discord.com/users/540176371327172618" target="_blank" rel="noopener noreferrer">Discord：xygowo</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 璇 (Xuan) 開發團隊。角色形象與網站內容保留所有權利。</p>
+        <span>Last updated · 2026-10-20</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/celestial.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/scroll.js" defer></script>
 </body>
 </html>

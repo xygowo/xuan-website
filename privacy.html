@@ -1,78 +1,272 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>隱私權政策 - 璇 (Xuan) ✧</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>隱私權政策 — 璇 Xuan</title>
+  <meta name="description" content="璇（Xuan）Discord 聊天機器人的隱私權政策：收集哪些資料、為什麼收集、存在哪裡、分享給誰，以及你可以怎麼要求刪除。">
+  <meta name="theme-color" content="#2A2438">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png?v=2">
+  <link rel="apple-touch-icon" href="assets/img/favicon-180.png?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header>
-        <h1>璇 (Xuan) ✧</h1>
-    </header>
-    <nav>
-        <a href="index.html">關於璇</a>
-        <a href="tos.html">服務條款</a>
-        <a href="privacy.html" class="active">隱私權政策</a>
-    </nav>
-    <main>
-        <h2>隱私權政策 (Privacy Policy)</h2>
-        <p class="meta-info">最後更新日期：2025年6月7日</p>
-        <p>本隱私權政策旨在說明當您使用 Discord 機器人「璇 (Xuan)」時，我們如何收集、使用、儲存和揭露您的資訊。透過與「璇」互動，即表示您同意本隱私權政策中所述的資訊處理實踐。</p>
+  <a class="skip-link" href="#main">跳至主要內容</a>
 
-        <h3>1. 我們收集的資訊</h3>
-        <h4>1.1 您直接提供的資訊</h4>
-        <ul>
-            <li><strong>訊息與互動內容</strong>：您在與「璇」互動時傳送的所有內容，包括文字訊息、指令、繪圖提示詞、設定提醒的內容，以及您上傳的附件（如圖片、音訊、影片）。</li>
-            <li><strong>網址</strong>：您在訊息中分享並要求「璇」處理的網址。</li>
+  <header class="site-header">
+    <div class="nav-bar" aria-hidden="true"></div>
+    <div class="wrap">
+      <nav class="nav" id="nav" aria-label="主要導覽">
+        <a class="brand" href="index.html">
+          <img class="brand__mark" src="assets/img/avatar.png" alt="" width="38" height="38">
+          <span class="brand__text">璇<span class="brand__latin">Xuan</span></span>
+        </a>
+        <button class="nav__toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="開啟選單">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html#about">關於璇</a></li>
+          <li><a href="index.html#start">怎麼開始</a></li>
+          <li><a href="index.html#abilities">日常</a></li>
+          <li><a href="index.html#style">說話風格</a></li>
+          <li><a href="index.html#commands">指令</a></li>
+          <li><a href="index.html#faq">常見問題</a></li>
         </ul>
-        <h4>1.2 我們自動收集的資訊</h4>
-        <ul>
-            <li><strong>Discord 識別資訊</strong>：您的 Discord 使用者 ID、您所在的伺服器 ID 及頻道 ID。</li>
-            <li><strong>訊息元數據 (Metadata)</strong>：您傳送訊息的時間戳、訊息 ID，以及您的 Discord 使用者名稱與伺服器暱稱。</li>
-            <li><strong>使用日誌</strong>：我們會自動記錄您與本服務互動的相關日誌，其中可能包含事件類型、語言模型處理的 Token 數量，以及您使用特定功能的次數統計。</li>
-        </ul>
+        <a class="btn btn--primary btn--sm nav__cta" href="https://discord.com/users/540176371327172618" target="_blank" rel="noopener noreferrer">聯絡擁有者</a>
+      </nav>
+    </div>
+  </header>
 
-        <h3>2. 我們如何使用您的資訊</h3>
-        <p>我們使用您資訊的目的如下：</p>
-        <ul>
-            <li><strong>提供核心服務</strong>：處理您的請求、生成回應、執行指令。</li>
-            <li><strong>服務改善與個人化</strong>：透過短期與長期記憶，提供更流暢、更具上下文的互動體驗。</li>
-            <li><strong>分析與維護</strong>：分析功能使用情況以進行服務優化，並監控服務的健康狀況以進行除錯。</li>
-        </ul>
+  <main id="main">
+    <div class="doc-hero">
+      <div class="wrap">
+        <p class="kicker">Privacy Policy</p>
+        <h1>隱私權政策</h1>
+        <p>這份政策說明璇（Xuan）會處理哪些資料、為什麼需要、放在哪裡、會傳給誰。範圍、位置與對象都寫在下面。</p>
+        <div class="doc-hero__meta">
+          <span class="badge badge--dusk">最後更新：2026 年 10 月 20 日</span>
+          <span class="badge badge--mint"><span class="badge__dot" aria-hidden="true"></span>不使用追蹤廣告</span>
+        </div>
+      </div>
+    </div>
 
-        <h3>3. 資訊的分享與揭露</h3>
-        <p>我們尊重您的隱私，不會出售您的個人資訊。我們僅在以下情況下分享您的資訊：</p>
-        <ul>
-            <li><strong>第三方服務供應商</strong>：您的訊息內容、搜尋關鍵字等將被傳送至 Google 的 API（包含 Gemini 和 Imagen 模型）以生成回應。語音訊息的轉錄是透過本地運行的模型庫完成的，您的音訊檔案不會被上傳至第三方雲端服務。</li>
-            <li><strong>開發與維護</strong>：本服務的開發者在進行維護、除錯或開發新功能時，可能會存取儲存的數據。</li>
-            <li><strong>法律要求</strong>：如果法律、法規或政府強制要求，我們可能會揭露您的資訊。</li>
-        </ul>
+    <div class="wrap">
+      <div class="doc">
+        <aside class="doc__toc" aria-label="政策目錄">
+          <h2>目錄</h2>
+          <ol>
+            <li><a href="#p1">適用範圍</a></li>
+            <li><a href="#p2">我們處理的資料</a></li>
+            <li><a href="#p3">處理目的</a></li>
+            <li><a href="#p4">保存位置與期限</a></li>
+            <li><a href="#p5">分享對象</a></li>
+            <li><a href="#p6">我們不做的事</a></li>
+            <li><a href="#p7">你的權利</a></li>
+            <li><a href="#p8">兒童與未成年人</a></li>
+            <li><a href="#p9">資訊安全</a></li>
+            <li><a href="#p10">政策變更</a></li>
+            <li><a href="#p11">聯絡方式</a></li>
+          </ol>
+        </aside>
 
-        <h3>4. 數據的儲存與安全</h3>
-        <ul>
-            <li><strong>儲存位置</strong>：您的資訊被儲存在運行本服務的伺服器上的檔案及本地資料庫中。</li>
-            <li><strong>安全措施</strong>：我們採取合理的技術和管理措施來保護您的資訊安全，但無法保證任何網路傳輸或電子儲存方式是 100% 安全的。</li>
-        </ul>
+        <div class="doc__body">
+          <section id="p1">
+            <h2><span>01</span>適用範圍</h2>
+            <p>本政策適用於 Discord 機器人「璇（Xuan）」及其官方介紹網站。璇只在<strong>伺服器頻道</strong>中運作，<strong>不處理私人訊息（DM）</strong>，也不會主動加入伺服器或發起對話。</p>
+            <p>本政策不適用於 Discord 平台本身的資料處理，也不適用於你透過璇點開的第三方網站。那些服務有自己的隱私政策。</p>
+          </section>
 
-        <h3>5. 您的權利與選擇</h3>
-        <ul>
-            <li>您可以透過 Discord 直接編輯或刪除您已傳送的訊息。</li>
-            <li>您可以隨時將「璇」從您的伺服器中移除，以停止我們對該伺服器未來資訊的收集。</li>
-            <li>如果您希望請求刪除與您使用者 ID 相關的特定儲存數據，請透過下方的聯絡方式與我們聯繫。</li>
-        </ul>
+          <section id="p2">
+            <h2><span>02</span>我們處理的資料</h2>
 
-        <h3>6. 兒童隱私</h3>
-        <p>本服務不針對 13 歲以下的兒童。我們不會故意收集 13 歲以下兒童的個人資訊。</p>
+            <h3>2.1 頻道訊息</h3>
+            <p>為了讓璇理解上下文，<strong>伺服器頻道中的每一則訊息</strong>（包含沒有提及他的訊息、其他機器人的訊息）都會被記錄到該頻道的短期記憶，內容包括：</p>
+            <ul>
+              <li>訊息文字內容與發送時間。</li>
+              <li>發送者的使用者 ID、使用者名稱與伺服器暱稱。</li>
+              <li>訊息 ID、頻道 ID 與伺服器 ID。</li>
+              <li>訊息中附帶的附件檔名、類型與連結。</li>
+            </ul>
+            <div class="callout">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+              <p><strong>請注意</strong>即使你沒有呼叫璇，你在該頻道說的話仍會進入短期記憶，並在之後被用來理解對話。若你不希望訊息被處理，請在沒有璇的頻道發言，或請管理員調整權限。</p>
+            </div>
 
-        <h3>7. 隱私權政策的變更</h3>
-        <p>我們可能會不時更新本隱私權政策。任何變更都將發布於此頁面，並更新頂部的「最後更新日期」。</p>
+            <h3>2.2 附件與圖片</h3>
+            <p>你上傳的圖片會以 Base64 形式傳送給語言模型進行理解，單次請求最多包含三張近期圖片。圖片會暫存在執行 Bot 那台機器的快取目錄，供短期記憶重讀；純文字類型的附件（如 .txt、.md、.json）會被讀取內容作為參考。</p>
+            <p>其他類型（影片、音訊、壓縮檔等）目前只會記錄檔名與類型，不會解析內容。</p>
 
-        <h3>8. 聯絡我們</h3>
-        <p>若您對本隱私權政策有任何疑問或疑慮，請透過 Discord: <a href="https://discord.com/users/540176371327172618">xygowo</a> 與我們聯繫。</p>
-    </main>
-    <footer>
-        <p>&copy; 2025 璇 (Xuan) 開發團隊. All rights reserved.</p>
-    </footer>
+            <h3>2.3 記憶與筆記</h3>
+            <ul>
+              <li><strong>個人印象記憶</strong>：你主動提及、或璇判斷值得記住的內容（喜好、近況、希望被稱呼的名字），以伺服器與你的使用者 ID 為鍵保存。</li>
+              <li><strong>頻道共享筆記</strong>：該頻道的主題、術語、約定與進度，以 Markdown 形式保存，頻道成員共用。</li>
+              <li><strong>提醒事項</strong>：提醒內容、觸發時間、目標使用者 ID。</li>
+            </ul>
+
+            <h3>2.4 使用紀錄</h3>
+            <ul>
+              <li>指令使用紀錄與功能操作結果（例如筆記更新、記憶整理）。</li>
+              <li>語言模型的 token 用量（輸入與輸出數量），用於 <code>/xuan_energy_check</code> 與成本監控。</li>
+              <li>系統日誌：錯誤訊息、啟動狀態、外部工具呼叫結果。日誌可能包含頻道 ID 與使用者 ID，但不作為行銷用途。</li>
+            </ul>
+
+            <h3>2.5 伺服器設定</h3>
+            <p>管理員設定的說話風格、社群連結預覽開關、遊戲狀態通知頻道與身分組標記等偏好設定。</p>
+          </section>
+
+          <section id="p3">
+            <h2><span>03</span>處理目的</h2>
+            <ul>
+              <li><strong>生成回覆</strong>：把訊息、記憶與筆記組成上下文，交給語言模型產生回應。</li>
+              <li><strong>維持對話連貫</strong>：透過短期記憶與個人印象，讓璇記得前面聊過什麼。</li>
+              <li><strong>執行你要求的動作</strong>：設定提醒、查詢資料、更新頻道筆記、抽選。</li>
+              <li><strong>除錯與維護</strong>：分析錯誤日誌、修復功能、避免濫用。</li>
+              <li><strong>成本管理</strong>：統計 token 用量，避免模型額度被異常消耗。</li>
+            </ul>
+            <p>我們不會將你的資料用於廣告投放、出售、建立跨網站的行為側寫，也不會用來訓練我們自己的模型。</p>
+          </section>
+
+          <section id="p4">
+            <h2><span>04</span>保存位置與期限</h2>
+            <p>璇的資料保存在<strong>執行 Bot 的伺服器本機檔案系統</strong>，不使用雲端資料庫。主要位置包括：</p>
+            <ul>
+              <li><code>data/personal_memories/</code>：個人印象記憶，依伺服器與使用者 ID 分層存放。</li>
+              <li><code>data/channel_memories/</code>：頻道共享筆記。</li>
+              <li><code>data/reminders.json</code>：提醒事項。</li>
+              <li><code>data/usage_logs/</code>：token 用量紀錄（JSONL）。</li>
+              <li><code>data/stm_image_cache/</code>：圖片暫存快取。</li>
+            </ul>
+            <p>保存期限依資料類型而不同：</p>
+            <ul>
+              <li><strong>頻道短期記憶</strong>：僅存在於執行中的記憶體，最多保留最近 30 則訊息與 15 則對話，超出即淘汰；重新啟動後不保留。</li>
+              <li><strong>個人印象與頻道筆記</strong>：持續保存，直到你或擁有者要求刪除，或該伺服器停止使用本服務。</li>
+              <li><strong>提醒事項</strong>：觸發並發送後，該筆提醒即從清單中移除。</li>
+              <li><strong>用量紀錄</strong>：保留供月度統計與成本核對。</li>
+              <li><strong>備份檔</strong>：每日 04:00 打包一次，保留 30 天。</li>
+            </ul>
+            <p>執行期資料會每日備份到<strong>私有的雲端硬碟空間</strong>。備份檔為未加密的壓縮檔，僅擁有者可存取，且不包含 API 金鑰與授權憑證。</p>
+          </section>
+
+          <section id="p5">
+            <h2><span>05</span>分享對象</h2>
+            <p>我們不會出售你的個人資料。資料僅在下列情況被傳送或揭露：</p>
+            <ul>
+              <li><strong>Discord</strong>：所有訊息與互動本身即透過 Discord 傳輸。</li>
+              <li><strong>Google Cloud Vertex AI</strong>：主要語言模型，接收對話內容、記憶摘要與圖片。</li>
+              <li><strong>OpenAI 相容端點（備援）</strong>：當主要模型不可用或額度用盡時，同樣的內容會傳送至備援模型供應商。</li>
+              <li><strong>外部搜尋服務（Exa MCP）</strong>：僅傳送搜尋關鍵字與你要他讀取的網址，不傳送完整對話。程式另保留 Google Custom Search 介面，未啟用時不會呼叫。</li>
+              <li><strong>公開連結預覽網域</strong>（如 fxtwitter、kkinstagram、vxthreads、vxbilibili）：當頻道啟用社群連結替換時，僅傳送該則公開貼文的網址。</li>
+              <li><strong>遊戲狀態 API</strong>（MapleStatus）：僅查詢公開的伺服器狀態，不傳送任何使用者資料。</li>
+              <li><strong>雲端硬碟備份空間</strong>：存放每日備份檔。</li>
+              <li><strong>法律要求</strong>：當依法令、司法或主管機關要求時，我們可能揭露必要資料。</li>
+            </ul>
+            <p>開發者在維護、除錯或回應你的請求時，可能存取已保存的資料。存取僅限於完成該目的所需的範圍。</p>
+          </section>
+
+          <section id="p6">
+            <h2><span>06</span>我們不做的事</h2>
+            <ul>
+              <li>不販售、出租或以行銷為目的交換你的資料。</li>
+              <li>不將對話內容公開展示或提供給其他使用者查詢。</li>
+              <li>不跨伺服器比對同一使用者的私人記憶（個人印象以伺服器與使用者 ID 隔離，僅在該使用者出現的伺服器中運用）。</li>
+              <li>不要求你提供密碼、驗證碼或任何 Discord 帳號憑證。</li>
+              <li>不在私訊中收集資料，因為璇不處理私訊。</li>
+            </ul>
+          </section>
+
+          <section id="p7">
+            <h2><span>07</span>你的權利</h2>
+            <p>你可以透過下列方式掌握與處理自己的資料：</p>
+            <ul>
+              <li><strong>查看頻道記憶</strong>：在頻道輸入 <code>/history</code>，可看到目前的短期記憶摘要與附件索引。</li>
+              <li><strong>查看用量</strong>：使用 <code>/xuan_energy_check</code> 查看自己與伺服器的 token 用量。</li>
+              <li><strong>要求刪除</strong>：透過第 11 條的聯絡方式提出，我們會刪除與你使用者 ID 相關的個人印象與可識別紀錄；頻道筆記若含你的發言，會視情況改寫或移除。</li>
+              <li><strong>停止收集</strong>：請管理員將璇移出伺服器，或撤銷他在特定頻道的讀取權限。</li>
+              <li><strong>更正資訊</strong>：若記憶內容有誤，可直接告訴璇更新，或請擁有者協助修正。</li>
+            </ul>
+            <p>提出請求時，請附上你的 Discord 使用者 ID 與所在伺服器，以便我們定位資料。我們會在合理時間內處理，通常為數個工作日。</p>
+          </section>
+
+          <section id="p8">
+            <h2><span>08</span>兒童與未成年人</h2>
+            <p>本服務不針對 13 歲以下兒童，我們不會刻意收集其個人資料。若你發現有未滿 13 歲的使用者正在使用本服務，請通知我們，我們會移除相關資料並停止該伺服器的存取。</p>
+            <p>若你介於 13 至 18 歲之間，請在監護人知情的情況下使用，並避免在對話中揭露真實姓名、住址、學校或聯絡方式。</p>
+          </section>
+
+          <section id="p9">
+            <h2><span>09</span>資訊安全</h2>
+            <p>我們採取的措施包括：API 金鑰僅存放於伺服器環境變數、資料檔案不進入公開版本控制、備份存放於私有雲端空間且僅擁有者帳號可存取、外部網頁內容一律視為不可信資料以避免提示注入。</p>
+            <p>然而，沒有任何網路傳輸或電子儲存方式能保證百分之百安全。若發生影響你權益的資料外洩，我們會在確認後於機器人所在的伺服器公告，並說明影響範圍與處置方式。</p>
+            <p>請不要主動在對話中提供密碼、身分證號、金融帳號或其他敏感資訊；璇不需要這些資料，也無法保護它們。</p>
+          </section>
+
+          <section id="p10">
+            <h2><span>10</span>政策變更</h2>
+            <p>當功能調整導致資料處理方式改變（例如新增第三方模型、改變保存期限），我們會更新本頁並修改頁首日期。重大變更會另外在機器人所在的伺服器公告。</p>
+            <p>變更後繼續使用本服務，視為你接受更新後的政策。若不同意，請停止使用並將璇移出伺服器。</p>
+          </section>
+
+          <section id="p11">
+            <h2><span>11</span>聯絡方式</h2>
+            <p>與隱私相關的查詢、刪除請求或安全通報，請透過 Discord 聯絡擁有者：</p>
+            <ul>
+              <li><strong>Discord</strong>：<a href="https://discord.com/users/540176371327172618" target="_blank" rel="noopener noreferrer">xygowo</a></li>
+            </ul>
+            <p>若你的請求涉及其他成員的資料，我們會在保護他人隱私的前提下處理，並可能請你補充說明以確認身分。</p>
+          </section>
+
+          <div class="doc__foot">
+            <p>最後更新：2026 年 10 月 20 日</p>
+            <a class="btn btn--secondary btn--sm" href="tos.html">回看服務條款</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">
+            <img src="assets/img/avatar.png" alt="" width="44" height="44">
+            <div>
+              <strong>璇 Xuan</strong>
+              <span>Day &amp; Night</span>
+            </div>
+          </div>
+          <p class="footer__desc">一隻日夜雙生的貓狐精靈，住在 Discord 群組裡，陪大家聊天、記住小事。</p>
+        </div>
+        <div>
+          <h5>網站</h5>
+          <ul>
+            <li><a href="index.html#about">關於璇</a></li>
+            <li><a href="index.html#abilities">日常</a></li>
+            <li><a href="index.html#commands">指令</a></li>
+            <li><a href="index.html#faq">常見問題</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>條款與聯絡</h5>
+          <ul>
+            <li><a href="tos.html">服務條款</a></li>
+            <li><a href="privacy.html">隱私權政策</a></li>
+            <li><a href="https://discord.com/users/540176371327172618" target="_blank" rel="noopener noreferrer">Discord：xygowo</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 璇 (Xuan) 開發團隊。角色形象與網站內容保留所有權利。</p>
+        <span>Last updated · 2026-10-20</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/scroll.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
