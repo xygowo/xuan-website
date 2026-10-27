@@ -2164,16 +2164,8 @@ code {
   }
 
   .hero__stats {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
-  }
-
-  .hero__stats div { padding: 16px 0; }
-
-  .hero__stats div + div {
-    padding-left: 0;
-    border-left: none;
-    border-top: 1px solid var(--line-inverse);
   }
 
   .cmd-extra { grid-template-columns: minmax(0, 1fr); }
@@ -2188,9 +2180,6 @@ code {
   .hero { padding-top: 108px; }
   .hero__title { font-size: clamp(72px, 22vw, 104px); }
   .hero__latin { letter-spacing: 0.4em; }
-
-  .hero__tag { font-size: 11px; padding: 7px 12px; }
-  .hero__tag--2 { right: -4%; }
 
   .day {
     grid-template-columns: minmax(0, 1fr);
@@ -2936,4 +2925,161 @@ code {
 
 .about__quote {
   position: static;
+}
+
+/* ==========================================================================
+   v5 layer — 手機細節與可讀性
+   疊在 v2 / v3 / v4 之後，處理跨層覆寫與小螢幕節奏。
+   ========================================================================== */
+
+/* 內文連結：常駐細底線，不要只在 hover 才出現 */
+.section p a,
+.faq__a a,
+.doc__body a,
+.memory__panel p a {
+  color: var(--night-indigo);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: rgba(92, 90, 153, 0.42);
+  text-underline-offset: 3px;
+  transition: color 200ms var(--ease), text-decoration-color 200ms var(--ease);
+}
+
+.section p a:hover,
+.faq__a a:hover,
+.doc__body a:hover,
+.memory__panel p a:hover {
+  color: var(--text-primary);
+  text-decoration-color: currentColor;
+}
+
+/* 指令複製：視覺圖示維持 14px，熱區放大到 40×40 */
+.cmd__copy {
+  width: 40px;
+  height: 40px;
+}
+
+/* FAQ：展開時左側金線 + 淡紫底，回饋不再只有箭頭翻轉 */
+.faq__item summary {
+  position: relative;
+  padding-left: 18px;
+}
+
+.faq__item summary::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 20px;
+  bottom: 20px;
+  width: 2px;
+  border-radius: 2px;
+  background-color: transparent;
+  transition: background-color 200ms var(--ease);
+}
+
+.faq__item[open] summary::before { background-color: var(--day-gold); }
+.faq__item[open] summary { color: var(--night-indigo); }
+
+.faq__item[open] {
+  background-color: rgba(237, 234, 247, 0.45);
+  border-radius: var(--r-sm);
+}
+
+.faq__a { padding-left: 18px; }
+
+/* 頁尾欄位標題：10.5px 在手機上幾乎讀不到 */
+.site-footer h5 {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+
+/* 記憶區：右側白卡撐滿高度，隱私連結貼齊底部，兩欄收尾對齊 */
+.memory { align-items: stretch; }
+
+.memory__panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.memory__panel p:last-child {
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+/* 浮動標籤外層：桌機仍讓三顆標籤絕對定位在頭像周圍 */
+.hero__tags {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  /* 統計列改三欄緊湊版，不再三列堆疊 */
+  .hero__stats { margin-top: 34px; }
+
+  .hero__stats div {
+    display: grid;
+    align-content: start;
+    gap: 2px;
+    padding: 16px 0 20px;
+  }
+
+  .hero__stats div + div {
+    padding-left: 16px;
+    border-left: 1px solid var(--line-inverse);
+    border-top: none;
+  }
+
+  .hero__stats b { font-size: 26px; }
+
+  .hero__stats span {
+    font-size: 11.5px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  /* 手機不需要 mono 的 "// " 前綴，省下的寬度留給中文標籤 */
+  .hero__stats span::before { content: none; }
+}
+
+@media (max-width: 720px) {
+  /* 手機：標籤從頭像邊緣移到下方，變成一列可換行的 pill */
+  .hero__tags {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .hero__tag {
+    position: static;
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+
+  .hero__stats b { font-size: 22px; }
+
+  .hero__stats span {
+    font-size: 10.5px;
+    line-height: 1.45;
+  }
+
+  .hero__stats div + div { padding-left: 12px; }
+}
+
+@media (max-width: 360px) {
+  /* 320px：縮小 pill 讓三顆仍能排成一列 */
+  .hero__tags { gap: 4px; }
+
+  .hero__tag {
+    gap: 4px;
+    font-size: 10px;
+    padding: 5px 8px;
+  }
+
+  .hero__tag b { font-size: 14px; }
+
+  .hero__stats span { font-size: 10px; }
 }
