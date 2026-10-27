@@ -1260,11 +1260,10 @@ code {
 .style-show__quote::before {
   content: "示意";
   position: absolute;
-  top: -9px;
-  left: 22px;
-  padding: 1px 9px;
-  border-radius: var(--r-full);
-  background-color: var(--surface-elevated);
+  top: -24px;
+  left: 2px;
+  padding: 0;
+  background: none;
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.14em;
@@ -2124,7 +2123,18 @@ code {
 
   /* 語氣卡在窄螢幕回到單欄堆疊 */
   .tabpanel { display: block; }
-  .style-show__quote { margin-top: 26px; }
+
+  .style-show__quote {
+    display: block;
+    margin-top: 26px;
+  }
+
+  /* 手機把「示意」收進引言卡頂端，避免看起來像上一段的最後一行 */
+  .style-show__quote::before {
+    position: static;
+    display: block;
+    margin-bottom: 6px;
+  }
 
   .nav__links { display: none; }
   .nav__cta { display: none; }
