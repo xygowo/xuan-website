@@ -1,154 +1,102 @@
-/* 璇 (Xuan) 介紹網站 v2 — 互動腳本
-   導覽收合、捲動進場、語氣切換（tabs）與指令複製，無外部依賴。 */
+/* 璇 (Xuan) 官網 v3 — 語氣滑桿與捲動進場
+   無外部依賴。JS 失效時五張語氣卡全部可見，滑桿隱藏。 */
 
 (function () {
   'use strict';
 
-  var nav = document.getElementById('nav');
-  var navToggle = document.getElementById('navToggle');
-  var navLinks = document.getElementById('navLinks');
-
-  /* --- 行動版導覽 --- */
-  function closeNav() {
-    if (!nav || !navToggle) return;
-    nav.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.setAttribute('aria-label', '開啟選單');
-  }
-
-  if (navToggle && nav) {
-    navToggle.addEventListener('click', function () {
-      var isOpen = nav.classList.toggle('is-open');
-      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      navToggle.setAttribute('aria-label', isOpen ? '關閉選單' : '開啟選單');
-    });
-
-    if (navLinks) {
-      navLinks.addEventListener('click', function (event) {
-        if (event.target.closest('a')) closeNav();
-      });
-    }
-
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') closeNav();
-    });
-
-    document.addEventListener('click', function (event) {
-      if (!nav.contains(event.target)) closeNav();
-    });
-  }
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* --- 捲動進場 --- */
-  var revealItems = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  var targets = document.querySelectorAll([
+    '.intro__lead',
+    '.intro__col',
+    '.letter__col > *',
+    '.does__title',
+    '.cell',
+    '.cmds__title',
+    '.row',
+    '.faq__title',
+    '.q',
+    '.cta__left > *',
+    '.cta__right',
+    '.foot__tile'
+  ].join(','));
 
-  if (revealItems.length) {
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (targets.length && 'IntersectionObserver' in window && !reduce) {
+    var list = Array.prototype.slice.call(targets);
 
-    if (reduceMotion || !('IntersectionObserver' in window)) {
-      revealItems.forEach(function (item) { item.classList.add('is-in'); });
-    } else {
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('is-in');
-          observer.unobserve(entry.target);
-        });
-      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
+    list.forEach(function (el) { el.classList.add('is-reveal'); });
 
-      revealItems.forEach(function (item) { observer.observe(item); });
-    }
-  }
-
-  /* --- 導覽列目前區塊 --- */
-  var sectionLinks = Array.prototype.slice.call(document.querySelectorAll('.nav__links a[href^="#"]'));
-  var sections = sectionLinks
-    .map(function (link) { return document.querySelector(link.getAttribute('href')); })
-    .filter(Boolean);
-
-  if (sections.length && 'IntersectionObserver' in window) {
-    var spy = new IntersectionObserver(function (entries) {
+    var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        sectionLinks.forEach(function (link) {
-          link.classList.toggle('is-active', link.getAttribute('href') === '#' + entry.target.id);
-        });
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
       });
-    }, { rootMargin: '-46% 0px -50% 0px' });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
 
-    sections.forEach(function (section) { spy.observe(section); });
+    list.forEach(function (el) { io.observe(el); });
   }
 
-  /* --- 語氣切換 --- */
-  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  /* --- 語氣滑桿 --- */
+  var range = document.getElementById('voiceRange');
+  if (!range) return;
 
-  function selectTab(tab, focus) {
-    tabs.forEach(function (item) {
-      var selected = item === tab;
-      var panel = document.getElementById(item.getAttribute('aria-controls'));
-      item.setAttribute('aria-selected', selected ? 'true' : 'false');
-      item.tabIndex = selected ? 0 : -1;
-      if (panel) panel.hidden = !selected;
-    });
-    if (focus) tab.focus();
+  var panels = Array.prototype.slice.call(document.querySelectorAll('[data-voice-panel]'));
+  var clause = document.querySelector('[data-voice-clause]');
+  var desc = document.querySelector('[data-voice-desc]');
+  var fill = document.querySelector('[data-voice-fill]');
+  var stops = Array.prototype.slice.call(document.querySelectorAll('.voice__stops span'));
+
+  var voices = [
+    { name: '經典活潑', line: '預設的璇', note: '輕快，偶爾天然呆。' },
+    { name: '溫柔知性', line: '放慢的那種', note: '語氣放慢，先聽完再說。' },
+    { name: '傲嬌微甜', line: '嘴硬心軟', note: '吐槽歸吐槽，關鍵時刻還是站在你這邊。' },
+    { name: '慵懶隨興', line: '沙發上的貓', note: '回覆更短、更慢。' },
+    { name: '認真俐落', line: '工作模式', note: '條列清楚，先講結論。' }
+  ];
+
+  function twoLines(name, line) {
+    clause.textContent = '';
+    clause.appendChild(document.createTextNode(name));
+    clause.appendChild(document.createElement('br'));
+    clause.appendChild(document.createTextNode(line));
   }
 
-  tabs.forEach(function (tab, index) {
-    tab.addEventListener('click', function () { selectTab(tab, false); });
+  function apply(index) {
+    var voice = voices[index];
+    if (!voice) return;
 
-    tab.addEventListener('keydown', function (event) {
-      var next = null;
-      if (event.key === 'ArrowRight') next = tabs[(index + 1) % tabs.length];
-      if (event.key === 'ArrowLeft') next = tabs[(index - 1 + tabs.length) % tabs.length];
-      if (event.key === 'Home') next = tabs[0];
-      if (event.key === 'End') next = tabs[tabs.length - 1];
-      if (!next) return;
-      event.preventDefault();
-      selectTab(next, true);
-    });
-  });
+    twoLines(voice.name, voice.line);
+    desc.textContent = voice.note;
+    range.setAttribute('aria-valuetext', voice.name);
 
-  /* --- 複製指令 --- */
-  var copyButtons = Array.prototype.slice.call(document.querySelectorAll('.cmd__copy'));
-  var copyIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
-  var doneIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12.5 5 5L20 6.5"/></svg>';
-
-  function fallbackCopy(text) {
-    var helper = document.createElement('textarea');
-    helper.value = text;
-    helper.setAttribute('readonly', '');
-    helper.style.position = 'fixed';
-    helper.style.opacity = '0';
-    document.body.appendChild(helper);
-    helper.select();
-    try {
-      document.execCommand('copy');
-    } catch (error) {
-      /* 忽略：瀏覽器不支援時不阻斷操作 */
-    }
-    document.body.removeChild(helper);
-  }
-
-  copyButtons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      var text = button.getAttribute('data-copy') || '';
-      if (!text) return;
-
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).catch(function () { fallbackCopy(text); });
+    panels.forEach(function (panel) {
+      var on = Number(panel.getAttribute('data-voice-panel')) === index;
+      if (on) {
+        panel.setAttribute('data-active', '');
       } else {
-        fallbackCopy(text);
+        panel.removeAttribute('data-active');
       }
-
-      var label = button.getAttribute('aria-label') || '';
-      button.classList.add('is-done');
-      button.innerHTML = doneIcon;
-      button.setAttribute('aria-label', '已複製');
-
-      window.setTimeout(function () {
-        button.classList.remove('is-done');
-        button.innerHTML = copyIcon;
-        button.setAttribute('aria-label', label);
-      }, 1600);
     });
+
+    stops.forEach(function (stop, i) {
+      if (i === index) {
+        stop.setAttribute('data-current', '');
+      } else {
+        stop.removeAttribute('data-current');
+      }
+    });
+
+    if (fill) {
+      var p = index / (voices.length - 1);
+      fill.style.width = 'calc((100% - 32px) * ' + p.toFixed(3) + ' + 16px)';
+    }
+  }
+
+  range.addEventListener('input', function () {
+    apply(Number(range.value));
   });
+
+  apply(Number(range.value));
 })();
